@@ -73,3 +73,28 @@ h1 {
 .projects article img {
     width: 100%;
 }
+
+html {
+    color-scheme: light dark;
+}
+
+nav {
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav a.current {
+    border-bottom-color: var(--border-color);
+}
+
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+    font-family: inherit;
+}
+
+.color-scheme select {
+    font: inherit;
+}
