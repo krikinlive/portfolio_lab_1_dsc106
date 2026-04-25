@@ -1,5 +1,6 @@
 :root {
     --color-accent: oklch(65% 50% 0);
+    color-scheme: light dark;
 }
 
 html {
@@ -13,16 +14,16 @@ body {
     padding-inline: 1em;
 }
 
-/* ── NAV ── */
-nav ul,
-nav li {
+/* Nav */
+nav ul, nav li {
     display: contents;
 }
 
 nav {
     display: flex;
     margin-bottom: 2em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -34,16 +35,17 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid var(--border-color);
     padding-bottom: 0.1em;
 }
 
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-/* ── HEADINGS ── */
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     text-wrap: balance;
@@ -53,7 +55,7 @@ h1 {
     font-size: 400%;
 }
 
-/* ── PROJECTS GRID ── */
+/* Projects grid */
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -74,27 +76,53 @@ h1 {
     width: 100%;
 }
 
-html {
-    color-scheme: light dark;
+/* Contact form */
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
 }
 
-nav {
-    --border-color: oklch(50% 10% 200 / 40%);
-    border-bottom: 1px solid var(--border-color);
+form label {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
 }
 
-nav a.current {
-    border-bottom-color: var(--border-color);
+input, textarea, button, select {
+    font: inherit;
+    box-sizing: border-box;
+    width: 100%;
 }
 
+button {
+    grid-column: 1 / -1;
+}
+
+/* Dark mode switch */
 .color-scheme {
     position: absolute;
     top: 1rem;
     right: 1rem;
     font-size: 80%;
-    font-family: inherit;
 }
 
-.color-scheme select {
-    font: inherit;
+/* GitHub stats */
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#profile-stats dt {
+    grid-row: 1;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: gray;
+}
+
+#profile-stats dd {
+    grid-row: 2;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
 }
