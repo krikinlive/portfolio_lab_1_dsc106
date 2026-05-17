@@ -22,14 +22,18 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     for (let project of projects) {
         const article = document.createElement('article');
 
-        //
+        // Wrap the title in a link if the project has a url, otherwise plain text
         const titleHTML = project.url
             ? `<a href="${project.url}" target="_blank">${project.title}</a>`
             : project.title;
+        // Makes the same JSON entry works from both /projects/ and the homepage
+        const imageSrc = project.image.startsWith('http')
+            ? project.image
+            : BASE_PATH + project.image;
 
         article.innerHTML = `
             <${headingLevel}>${titleHTML}</${headingLevel}>
-            <img src="${project.image}" alt="${project.title}">
+            <img src="${imageSrc}" alt="${project.title}">
             <div>
                 <p>${project.description}</p>
                 <p class="project-year">c. ${project.year}</p>

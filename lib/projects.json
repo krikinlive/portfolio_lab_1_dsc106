@@ -2,7 +2,7 @@
     {
         "title": "Bikewatching",
         "year": "2026",
-        "image": "../images/bikewatching.png",
+        "image": "images/bikewatching.png",
         "description": "An interactive map visualizing BlueBikes traffic across Boston and Cambridge. Built with Mapbox GL JS and D3 — features a time slider, flow-direction coloring, and over 260,000 trips of real bike data.",
         "url": "https://krikinlive.github.io/bikewatching_dsc106/"
     },
